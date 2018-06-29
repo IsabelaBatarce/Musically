@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <link rel="stylesheet" type="text/css" href="css/addProduto.css">
+
+</head>
+<body>
+
+ <div class="container">
+ 
+
+
+  <div class="container-left"> 
+    <a href="#" id="btn-acessar">CADASTRAR</a>  
+  </div>
+   
+  <div class="container-right">
+
+<form id="formulario" action="/produtos/salvar" method="post">  
+      <legend>Cadastrar produto</legend>
+      
+
+      
+      <div class="input-container">
+        
+        <input type="text" id="nome" name="nome" value="<%=produtos.titulo%>" placeholder="Nome" required/>
+        <label for="nome">Nome</label>
+      </div> 
+
+      <div class="input-container">
+        
+        <input type="number" id="qtde" name="qtde" value="<%produtos.qtde%>" placeholder="Quantidade" required/>
+        <label for="qtde">Quantidade</label>
+      </div>
+
+      <div class="input-container">
+        
+        <input type="number" id="precounitario_produto" name="precounitario_produto" value="<%produtos.precounitario_produto%>" placeholder="Preço" required/>
+        <label for="precounitario_produto">Preço</label>
+      </div>
+
+      <div class="input-container">
+        
+        <input type="text" id="marca_produto" name="marca_produto" value="<%produtos.marca_produto%>" placeholder="Marca" required/>
+        <label for="marca_produto">Marca</label>
+      </div>
+
+      <div class="input-container">
+        
+        <input type="text" id="tipo_instrumento" name="tipo_instrumento" value="<%produtos.tipo_instrumento%>" placeholder="Tipo instrumento" required/>
+        <label for="tipo_instrumento">Tipo Instrumento</label>
+      </div>
+
+      
+      <input type="submit" value="Salvar" class="button" />
+    </form>      
+  </div>   
+</div>              
+</form>  
+
+</body>
+
+ 
+ <script type="text/javascript">
+   document.querySelector('#btn-acessar').onclick = evt => {
+  JSHelpers.toggleClass('.container-right', 'active');
+  JSHelpers.toggleClass('.container-left', 'active');
+  JSHelpers.toggleClass('.container', 'active');   
+}  
+
+class JSHelpers{
+  static toggleClass(el, clazz){
+    let _el = document.querySelector(el);
+    
+    _el.className.includes('active') ?
+      _el.className = _el.className.replace(clazz, ''):
+      _el.className += ' ' + clazz;  
+  }
+}
+ </script>
+  <script type="text/javascript" src="login.js"></script>
+</html>
